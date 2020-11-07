@@ -8,7 +8,7 @@ import SpeakerDetail from './SpeakerDetail';
 import SessionDetail from './SessionDetail';
 import MapView from './MapView';
 import About from './About';
-// import VideoChat from './VideoChat/VideoChat';
+import VideoChat from './VideoChat/VideoChat';
 
 interface MainTabsProps { }
 
@@ -29,7 +29,7 @@ const MainTabs: React.FC<MainTabsProps> = () => {
         <Route path="/tabs/speakers/sessions/:id" component={SessionDetail} />
         <Route path="/tabs/map" render={() => <MapView />} exact={true} />
         <Route path="/tabs/about" render={() => <About />} exact={true} />
-        {/* <Route path="/tabs/camera" render={() => <VideoChat />} exact={true} /> */}
+        <Route path="/tabs/camera" render={() => <VideoChat />} exact={true} />
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
         <IonTabButton tab="schedule" href="/tabs/schedule">
