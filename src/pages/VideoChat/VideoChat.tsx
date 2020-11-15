@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect} from 'react';
+import axios from 'axios';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonActionSheet } from '@ionic/react';
 import { camera, trash, close } from 'ionicons/icons';
 import { usePhotoGallery, Photo } from '../../hooks/usePhotoGallery';
@@ -6,6 +7,27 @@ import { usePhotoGallery, Photo } from '../../hooks/usePhotoGallery';
 const VideoChat: React.FC = () => {
   const { deletePhoto, photos, takePhoto } = usePhotoGallery();
   const [photoToDelete, setPhotoToDelete] = useState<Photo>();
+  const [dummyData, setDummyData] = useState(null);
+
+  // https://ionicframework.com/docs/cli/commands/start 
+
+  const aa = useCallback( async() => {
+    const response = await axios({
+        method: 'GET',
+        url: 'http://localhost:8000',
+        // headers: {
+        //     'Access-Control-Allow-Origin': '*',
+        //     'Access-Control-Allow-Headers': '*'
+        // }
+    });
+    console.log('response :',response)
+    setDummyData(dummyData);
+  }, [dummyData]);
+
+  useEffect(() => {
+    aa()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <IonPage id="video-chat-page">
