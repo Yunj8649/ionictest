@@ -3,6 +3,7 @@ import axios from 'axios';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonActionSheet } from '@ionic/react';
 import { camera, trash, close } from 'ionicons/icons';
 import { usePhotoGallery, Photo } from '../../hooks/usePhotoGallery';
+import DataManager from '../../util/DataManager/DataManager';
 
 const VideoChat: React.FC = () => {
   const { deletePhoto, photos, takePhoto } = usePhotoGallery();
@@ -12,16 +13,9 @@ const VideoChat: React.FC = () => {
   // https://ionicframework.com/docs/cli/commands/start 
 
   const aa = useCallback( async() => {
-    const response = await axios({
-        method: 'GET',
-        url: 'http://localhost:8000',
-        // headers: {
-        //     'Access-Control-Allow-Origin': '*',
-        //     'Access-Control-Allow-Headers': '*'
-        // }
-    });
-    console.log('response :',response)
-    setDummyData(dummyData);
+    // const aa = await DataManager.getMenus();
+    // console.log('response :',aa)
+    // setDummyData(dummyData);
   }, [dummyData]);
 
   useEffect(() => {

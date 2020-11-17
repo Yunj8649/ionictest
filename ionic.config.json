@@ -6,8 +6,13 @@
   "type": "react",
   "proxies": [
     {
-      "path": "/api",
-      "proxyUrl": "http://localhost:8000/"
+        "path": "/api",
+        "proxyUrl": "http://localhost:8000",
+        "rejectUnauthorized": false
+    },
+    {
+        "path": "/menus",
+        "proxyUrl": "http://localhost:8000/home"
     }
   ]
 }

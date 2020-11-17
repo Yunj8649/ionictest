@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useCallback} from 'react';
 import { RouteComponentProps, withRouter, useLocation } from 'react-router';
 
 import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonToggle } from '@ionic/react';
@@ -8,6 +8,7 @@ import { connect } from '../data/connect';
 import { setDarkMode } from '../data/user/user.actions';
 
 import './Menu.css'
+import DataManager from '../util/DataManager/DataManager';
 
 const routes = {
   appPages: [
@@ -62,6 +63,17 @@ const Menu: React.FC<MenuProps> = ({ darkMode, history, isAuthenticated, setDark
         </IonMenuToggle>
       ));
   }
+
+  const initialize = useCallback(async() => {
+    console.log('111')
+    const menus = await DataManager.getMenus();
+
+    console.log(menus)
+  }, []);
+
+  useEffect(() => {
+    initialize();
+  }, []);
 
   return (
     <IonMenu  type="overlay" disabled={!menuEnabled} contentId="main">

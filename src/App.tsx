@@ -28,6 +28,7 @@ import { connect } from './data/connect';
 import { AppContextProvider } from './data/AppContext';
 import { loadConfData } from './data/sessions/sessions.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
+import Home from './pages/Home/Home';
 import Account from './pages/Account';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -80,6 +81,7 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
                 We use IonRoute here to keep the tabs state intact,
                 which makes transitions between tabs and non tab pages smooth
                 */}
+                <Route path="/" component={HomeOrTutorial} exact />
                 <Route path="/tabs" render={() => <MainTabs />} />
                 <Route path="/account" component={Account} />
                 <Route path="/login" component={Login} />
@@ -92,7 +94,6 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
                     setUsername={setUsername}
                   />;
                 }} />
-                <Route path="/" component={HomeOrTutorial} exact />
               </IonRouterOutlet>
             </IonSplitPane>
           </IonReactRouter>
