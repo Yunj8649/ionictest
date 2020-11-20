@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect} from 'react';
 import axios from 'axios';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonActionSheet } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonButtons, IonMenuButton, IonToolbar, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonActionSheet } from '@ionic/react';
 import { camera, trash, close } from 'ionicons/icons';
 import { usePhotoGallery, Photo } from '../../hooks/usePhotoGallery';
 import DataManager from '../../util/DataManager/DataManager';
@@ -25,17 +25,26 @@ const VideoChat: React.FC = () => {
 
   return (
     <IonPage id="video-chat-page">
-      <IonHeader>
+        <IonHeader>
+                <IonToolbar>
+                    <IonButtons slot="start">
+                        <IonMenuButton />
+                    </IonButtons>
+                    <IonTitle>Photo Gallery</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+      {/* <IonHeader>
         <IonToolbar>
           <IonTitle>Photo Gallery</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-      <IonHeader collapse="condense">
+      <IonContent> */}
+     {/*  <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Photo Gallery</IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
+        <IonContent fullscreen={true}>
         <IonGrid>
           <IonRow>
             {photos.map((photo, index) => (

@@ -30,6 +30,8 @@ import { loadConfData } from './data/sessions/sessions.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
 import Home from './pages/Home/Home';
 import Account from './pages/Account';
+import VideoChat from './pages/VideoChat/VideoChat';
+import Chat from './pages/Chat/Chat';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Support from './pages/Support';
@@ -83,9 +85,11 @@ const IonicApp: React.FC<IonicAppProps> = ({ darkMode, schedule, setIsLoggedIn, 
                 */}
                 <Route path="/" component={HomeOrTutorial} exact />
                 <Route path="/tabs" render={() => <MainTabs />} />
-                <Route path="/account" component={Account} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
+                <Route path="/camera" component={VideoChat} />
+                <Route path="/chat" component={Chat} />
+                <Route path="/account" component={Account} />
                 <Route path="/support" component={Support} />
                 <Route path="/tutorial" component={Tutorial} />
                 <Route path="/logout" render={() => {
