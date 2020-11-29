@@ -33,8 +33,9 @@ import DataManager from '../util/DataManager/DataManager';
 interface Pages {
     MENU_NM: string,
     MENU_URL: string,
-  icon: string,
-  routerDirection?: string
+    MENU_ID: string,
+    icon: string,
+    routerDirection?: string
 //   title: string,
 //   path: string,
 //   icon: string,
@@ -64,7 +65,7 @@ const Menu: React.FC<MenuProps> = ({ darkMode, history, isAuthenticated, setDark
     return list
       .filter(route => !!route.MENU_URL)
       .map(p => (
-        <IonMenuToggle key={p.MENU_NM} auto-hide="false">
+        <IonMenuToggle key={p.MENU_ID} auto-hide="false">
           <IonItem detail={false} routerLink={p.MENU_URL} routerDirection="none" className={location.pathname.startsWith(p.MENU_URL) ? 'selected' : undefined}>
             {/* <IonIcon slot="start" icon={p.icon} /> */}
             <IonLabel>{p.MENU_NM}</IonLabel>
