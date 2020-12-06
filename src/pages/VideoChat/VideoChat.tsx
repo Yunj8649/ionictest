@@ -62,26 +62,41 @@ interface stream {
     const onClickEntrance = async () => {
 		const roomId = '36afca9a313211ebb84eacde48001122'
 		// await DataManager.entranceVideoChat({ roomId })
-		var socket = new WebSocket(`ws://0.0.0.0:8000/ws/chat/${roomId}/`);
-		// var socket = new WebSocket(`ws://127.0.0.1:6379/ws/chat/${roomId}/`);
-		// var socket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomId}/`);
+		const socket = new WebSocket(`ws://15.164.220.31/ws/chat/${roomId}/`);
 		console.log('socket :' ,socket)
 		console.log('socket :' , typeof socket)
+		// var socket = new WebSocket(`ws://127.0.0.1:6379/ws/chat/${roomId}/`);
+		// var socket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomId}/`);
+		socket.onmessage = function(e){ console.log(e.data); };
+		socket.onopen = () => socket.send('hello');
+		// socket.send(JSON.stringify({
+		// 	'message': 'aaa'
+		// }));
+		socket.onmessage = (e) => {
+            var data = JSON.parse(e.data);
+			var message = {text: data.message, date: data.utc_time};
+			console.log('message :' ,message)
+	    	// message.date = moment(message.date).local().format('YYYY-MM-DD HH:mm:ss');
+	    
+            // let updated_messages = [...this.state.messages];
+            // updated_messages.push(message);
+            // this.setState({messages: updated_messages});
+        };
 		// socket.onopen('message', { roomId, userId: 'yunj' });
 		// io.emit('join-room', roomId, 'yunj')
 		// socket.onopen = () => socket.send('aa')
-		socket.onopen = function(e) {
-			console.log("[open] 커넥션이 만들어졌습니다.");
-			console.log("데이터를 서버에 전송해봅시다.");
-			socket.send("My name is John");
-		};
-		socket.send(JSON.stringify({
-            'message': 'aa'
-        }));
+		// socket.onopen = function(e) {
+		// 	console.log("[open] 커넥션이 만들어졌습니다.");
+		// 	console.log("데이터를 서버에 전송해봅시다.");
+		// 	socket.send("My name is John");
+		// };
+		// // socket.send(JSON.stringify({
+        // //     'message': 'aa'
+        // // }));
 
-		socket.onmessage = function(event) {
-			alert(`[message] 서버로부터 전송받은 데이터: ${event.data}`);
-		};
+		// socket.onmessage = function(event) {
+		// 	alert(`[message] 서버로부터 전송받은 데이터: ${event.data}`);
+		// };
 		
 		// socket.onclose = function(event) {
 		// 	if (event.wasClean) {
@@ -99,7 +114,10 @@ interface stream {
 		
     }
     const onClickCreate = async () => {
-        await DataManager.createVideoChat()
+		const response = await DataManager.createVideoChat()
+		console.log('v :', response)
+		const socket = new WebSocket(`ws://15.164.220.31/ws/chat/${response.roomId}/`);
+		socket.onopen = function(evt) { console.log('open') ;};
     }
 
     const getMedia = async (constraints: any) => {
