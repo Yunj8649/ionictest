@@ -1,7 +1,7 @@
 import React  from 'react';
 import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/react';
 import { Route, Redirect } from 'react-router';
-import { personSharp,fitnessOutline,chatboxEllipsesOutline,clipboardOutline,calendar, location, informationCircle, people, home } from 'ionicons/icons';
+import { calendar, location, informationCircle, people, home } from 'ionicons/icons';
 import Home from './Home/Home';
 import SchedulePage from './SchedulePage';
 import SpeakerList from './SpeakerList';
@@ -36,24 +36,24 @@ const MainTabs: React.FC<MainTabsProps> = () => {
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
         <IonTabButton tab="schedule" href="/tabs/schedule">
-          <IonIcon icon={personSharp} />
-          <IonLabel>로그인</IonLabel>
+          <IonIcon icon={calendar} />
+          <IonLabel>Schedule</IonLabel>
         </IonTabButton>
         <IonTabButton tab="speakers" href="/tabs/speakers">
-          <IonIcon icon={fitnessOutline} />
-          <IonLabel>상담사찾기</IonLabel>
+          <IonIcon icon={people} />
+          <IonLabel>Speakers</IonLabel>
         </IonTabButton>
         <IonTabButton tab="home" href="/tabs/home">
           <IonIcon icon={home} />
           <IonLabel>Home</IonLabel>
         </IonTabButton>
         <IonTabButton tab="map" href="/tabs/map">
-          <IonIcon icon={chatboxEllipsesOutline} />
-          <IonLabel>상담시작</IonLabel>
+          <IonIcon icon={location} />
+          <IonLabel>Map</IonLabel>
         </IonTabButton>
         <IonTabButton tab="about" href="/tabs/about">
-          <IonIcon icon={clipboardOutline} />
-          <IonLabel>상담내역</IonLabel>
+          <IonIcon icon={informationCircle} />
+          <IonLabel>About</IonLabel>
         </IonTabButton>
       </IonTabBar>
     </IonTabs>

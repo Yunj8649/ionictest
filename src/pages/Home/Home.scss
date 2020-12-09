@@ -1,0 +1,30 @@
+#home-page {
+	.menu-btn {
+		position: relative;
+  		width: 100%;
+	}
+	.menu-btn:after {
+		content: "";
+		display: block;
+		padding-bottom: 100%;
+	}
+	.content {
+		font-size: 0.8rem;
+    	text-align: center;
+	}
+
+	.middle-container {
+		.icon-large:host {
+			font-size: 80px;
+		}
+	}
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	
+}
