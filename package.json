@@ -23,6 +23,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+    "@types/simple-peer": "^9.6.1",
     "axios": "^0.21.0",
     "cordova-plugin-video-capture-plus": "^1.0.0",
     "eslint": "^6.8.0",
@@ -40,6 +41,7 @@
     "react-webcam": "^5.2.2",
     "redux-zero": "^5.1.7",
     "reselect": "^4.0.0",
+    "simple-peer": "^9.9.3",
     "socket.io": "^3.0.3"
   },
   "scripts": {

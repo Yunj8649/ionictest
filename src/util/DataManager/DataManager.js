@@ -17,7 +17,7 @@ function getCookie( name ) {
     return cookieValue;
 }
 const csrftoken = getCookie( 'csrftoken' );
-const END_POINT = 'http://15.164.220.31:8000';
+const END_POINT = 'http://15.165.75.209';
 
 export default class DataManager {
     static async getMenus() {
