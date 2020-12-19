@@ -51,6 +51,12 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
     }
   };
 
+  const onChange = (e: any) => {
+	setPassword(e.detail.value!)
+	console.log(e)
+	console.log(e.target.id)
+  }
+
   return (
     <IonPage id="login-page">
       <IonHeader>
@@ -84,7 +90,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
 
             <IonItem>
               <IonLabel position="stacked" color="primary">Password</IonLabel>
-              <IonInput name="password" type="password" value={password} onIonChange={e => setPassword(e.detail.value!)}>
+              <IonInput id="password" name="password" type="password" value={password} onIonChange={onChange}>
               </IonInput>
             </IonItem>
 
